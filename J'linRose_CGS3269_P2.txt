@@ -1,0 +1,70 @@
+//J'lin Rose
+//Cgs3269
+//02/19/2018
+
+ORG 100 
+
+ Input //Input First number
+ Store A //Store first number
+ Output //Input second number
+
+ Input //Input second number
+ Store B //Store second number
+ Output //Display second number
+
+
+ Input //input third number
+ Store C //store third number
+Output //Display third number
+
+
+ Input //Input the fourth number
+ Store D //Store the fourth number
+ Output //Display 
+
+Loop, Load A //the first number will be loaded and the loop will start
+ Add Fs // Fs=0 , Fs=Fs+A
+ Store Fs//store Fs 
+
+ Load B //The second number will be loaded and used for the skip condition
+ Subt S //B-1
+ Store B 
+ Skipcond 400 //When second number reaches zero it will skip
+ Jump Loop //this will repeat addition until condition is met
+ Load Fs //A*B
+ Store A //Fs is stored in A
+
+Loop1, Load C //Load the third number and start looping
+ Add Ss //here Ss=0 and Ss=Ss+C
+ Store Ss//
+
+ Load D //Fourth number will be loaded and used for skip condition
+ Subt S //D-1
+ Store D //updates new D
+ Skipcond 400 //when the number reaches zero it will skip
+ Jump Loop1 //addition will repeat until fourth number equals zero
+ Load Ss //it is C*D
+ Store C //Storing second Fs in C
+
+Loop2, Load A // A=Fs
+ Add Ftotal //Ftotal=0 , Ftotal=Ftotal+A
+ Store Ftotal
+
+ Load C // C=Ss
+ Subt S // C-1
+ Store C //updated c is stored
+ Skipcond 400 //When C reaches zero it will skip
+ Jump Loop2 //Used to repeat addition until C reaches zero
+ Load Ftotal // A*c
+
+ Output //The final product will display
+ HALT //end of program
+
+A, Dec 0 //variables
+B, Dec 0
+C, Dec 0
+D, Dec 0
+Fs, Dec 0
+Ss, Dec 0
+Ftotal, Dec 0
+S, Dec 1
